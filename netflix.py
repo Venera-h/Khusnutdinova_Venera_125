@@ -2,7 +2,7 @@
 import random
 cost = random.randint(400,1201)
 friends = [X: random.randint(0,1501), Y: random.randint(0,1501), Z : random.randint(0,1501) ]
-while (X+Y+Z)> cost:
+
     X = random.randint(0,1501)
     Y = random.randint(0,1501)
     Z = random.randint(0,1501)
