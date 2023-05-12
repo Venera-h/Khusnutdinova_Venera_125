@@ -1,0 +1,36 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --pink: #E9967A
+}
+body{
+    background: var(--pink);
+    font-family: system-ui;
+    overflow: hidden;
+}
+
+header{
+    background-image: url("zefir.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 170px;
+    position: relative;
+}
+nav {
+    position: absolute;
+    top:0 ;
+    right: 1;
+    left: 3;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 60 px 0 60px;
+}
+
+
