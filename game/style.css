@@ -1,0 +1,29 @@
+
+.field {
+    width: 600px;
+    height: 800px;
+
+}
+#cat {
+    display: block;
+    width: 100%;
+    background-color:#4299e1 ;
+}
+
+#fairy {
+    width: 78px;
+    height: 86px;  
+    background-image: url(image/img.png);
+    position: relative;
+    top: 150px;
+    left: 20px;
+    animation: fairymov 1s infinite linear;
+}
+@keyframes fairymov {
+    0%{
+        left: 20px;
+    }
+    100%{
+        left: +600px;
+    }
+}
