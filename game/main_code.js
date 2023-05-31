@@ -1,3 +1,23 @@
+const canvas = document.querySelector('canvas')
+const c = canvas.getContext('2d')
+canvas.width= window.innerHeight
+document.body.appendChild(canvas);
+
+class Player {
+    constructor() {
+        this.position ={
+            x: 100,
+            y: 100
+        }
+        // this.element = document.createElement("img");
+        // this.element.src = url(image/img.png);
+        // this.element.style.width = "78px";
+        // this.element.style.height = "86px";
+        // document.body.appendChild(this.element);
+  }
+        
+    
+    }
 // const fairy = document.getElementById("fairy");
 
 // document.addEventListener("keydown", function(event){
@@ -30,3 +50,14 @@ addEventListener('keydown', ({ keyCode }) => {
                 break
         }
     })
+
+class Platform{
+    this.position ={
+        x: 0, 
+        y: 0
+            }
+    this.width: 200;
+    this.height: 20;
+}
+const player = new Player()
+const platform = new Platform()
