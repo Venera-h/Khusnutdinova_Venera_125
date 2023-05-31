@@ -4,6 +4,8 @@ const c = canvas.getContext('2d')
 canvas.width= window.innerWidth
 canvas.height= window.innerHeight
 
+const gravity = 0.5
+
 class Player {
     constructor() {
         this.position = {
@@ -12,7 +14,7 @@ class Player {
         }
         this.velocity = {
             x:0,
-            y:0
+            y:5
         }
 
         const image = new Image()
@@ -24,6 +26,12 @@ class Player {
   }
     draw(){
         c.drawImage(this.image, this.position.x, this.position.y)
+    }
+
+    update() {
+        this.position.y += this.velocity.y
+        this.draw()
+        this.velocity.y += gravity
     }
     
     }
@@ -55,12 +63,12 @@ class Player {
 //     this.height = 20
 // }
 const player = new Player()
-player.draw()
+player.update()
 // const platform = new Platform()
 
 function animate() {
     requestAnimationFrame(animate)
-   c.fillRect(0,0, canvas.width, canvas.height)
-   player.draw()
+    c.fillRect(0,0, canvas.width, canvas.height)
+   player.update()
 }
 animate()
