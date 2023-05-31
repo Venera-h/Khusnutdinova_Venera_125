@@ -125,5 +125,32 @@ function animate() {
         player.velocity.x =-5
     else player.velocity.x = 0 
    
+    updateCollectibles()
+    checkCollisions()
+    if (performance.now() - lastSpawnTime > spawnInterval) {
+        spawnCollectible()
+        lastSpawnTime = performance.now()
+     }
 }
 animate()
+
+class Collectible {
+    constructor(position, good) {
+      this.position = position
+      this.good = good
+      const image = new Image()
+      image.src = good ? './image/good.png' : './image/bad.png'
+      this.image = image
+      this.width = 50
+      this.height = 50
+    }
+  
+    draw() {
+      c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+    }
+  
+    update() {
+      this.draw()
+      this.position.y += 5
+    }
+  }
