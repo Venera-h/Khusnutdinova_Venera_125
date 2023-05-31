@@ -25,11 +25,12 @@ class Player {
         this.height = 100
   }
     draw(){
-        c.drawImage(this.image, this.position.x, this.position.y)
+        c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
     }
 
     update() {
         this.draw()
+        this.position.x += this.velocity.x
         this.position.y += this.velocity.y
         if (this.position.y + this.height + this.velocity <= canvas.height)
             this.velocity.y += gravity
@@ -44,17 +45,19 @@ class Player {
          switch (keyCode) {
               case 37:
                   console.log('left')
+                  player.velocity.x -= 5
                   break
               case 40:
                   console.log('down')
-                  player.velocity.y -= 20
+                  player.velocity.y += 20
                   break    
               case 39:
                   console.log('right')
+                  player.velocity.x += 5
                   break
               case 38:
                   console.log('up')
-                  player.velocity.y += 10
+                  player.velocity.y -= 20
                   break
          }
         }) 
