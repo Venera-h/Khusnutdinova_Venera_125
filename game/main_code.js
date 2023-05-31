@@ -29,30 +29,39 @@ class Player {
     }
 
     update() {
-        this.position.y += this.velocity.y
         this.draw()
-        this.velocity.y += gravity
+        this.position.y += this.velocity.y
+        if (this.position.y + this.height + this.velocity <= canvas.height)
+            this.velocity.y += gravity
+         else this.velocity.y = 0
+
     }
     
     }
 
 
-// addEventListener('keydown', ({ keyCode }) => {
-//         switch (keyCode) {
-//             case 65:
-//                 console.log('left')
-//                 break
-//             case 83:
-//                 console.log('down')
-//                 break    
-//             case 68:
-//                 console.log('right')
-//                 break
-//             case 87:
-//                 console.log('up')
-//                 break
-//         }
-//     })
+  addEventListener('keydown', ({ keyCode }) => {
+         switch (keyCode) {
+              case 37:
+                  console.log('left')
+                  break
+              case 40:
+                  console.log('down')
+                  player.velocity.y -= 20
+                  break    
+              case 39:
+                  console.log('right')
+                  break
+              case 38:
+                  console.log('up')
+                  player.velocity.y += 10
+                  break
+         }
+        }) 
+    
+    //   addEventListener('keydown', (event) =>{
+    //      console.log(event)
+    //   })
 
 // class Platform{
 //     this.position = {
@@ -69,6 +78,7 @@ player.update()
 function animate() {
     requestAnimationFrame(animate)
     c.fillRect(0,0, canvas.width, canvas.height)
+    c.clearRect(0,0, canvas.width, canvas.height)
    player.update()
 }
 animate()
