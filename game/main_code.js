@@ -1,3 +1,5 @@
+import background from './image/fon.png'
+import background from './image/platform.png'
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
@@ -113,7 +115,12 @@ player.update()
 const platforms = [new Platform({
     x:350, y: 500
 }), new Platform({x:700,y:300}), new Platform({x:1000,y:100}), new Platform({x:1400,y:600})]
+const landscape = [new Landscape({
+    x:0,
+    y:0,
+    image
 
+})]
 
 const keys = {
 right: {
@@ -183,20 +190,27 @@ class Collectible {
       this.position.y += 5
     }
   }
-  const backgroundImage = new Image();
-  backgroundImage.src = './image/fon.png';
+ 
+
+class Landscape{
+    constructor({x, y}){
+        this.position = {
+            x, 
+            y
+         }
+        this.image = image
+        this.width = image.width
+        this.height=image.height
   
-  let backgroundStart = 0;
+       }
+       draw() {
+        c.drawImage(this.image, this.position.x, this.position.y)
+       }
+   }
   
-  function refreshBackground() {
-    ctx.drawImage(backgroundImage, 0, backgroundStart);
-    ctx.drawImage(backgroundImage, 0, backgroundStart - canvas.height);
-  
-    backgroundStart += 1;
-  
-    if (backgroundStart > canvas.height) {
-      backgroundStart = 0;
+   function createImage(imageSrc){
+    const image = new Image(){
+        image.src =
     }
-  }
-  
+   }
  
