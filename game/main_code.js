@@ -93,16 +93,24 @@ class Player {
     //      console.log(event)
     //   })
 
-// class Platform{
-//     this.position = {
-//         x: 0, 
-//         y: 0
-//      }
-//     this.width = 200
-//     this.height = 20
-// }
+ class Platform{
+    constructor(){
+     this.position = {
+         x: 350, 
+         y: 500
+      }
+     this.width = 200
+     this.height = 25
+ 
+    }
+    draw() {
+        c.fillStyle = 'green'
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    }
+}
 const player = new Player()
 player.update()
+const platform = new Platform()
 const keys = {
 right: {
     pressed: false
@@ -118,12 +126,19 @@ function animate() {
    c.fillRect(0,0, canvas.width, canvas.height)
    c.clearRect(0,0, canvas.width, canvas.height)
    player.update()
+   platform.draw()
 
-    if (keys.right.pressed) 
-        player.velocity.x =5
-    else if (keys.left.pressed)
-        player.velocity.x =-5
+    if (keys.right.pressed && player.position.x < 600) {
+        player.velocity.x =5}
+    else if (keys.left.pressed){
+        player.velocity.x =-5}
     else player.velocity.x = 0 
+
+    if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y
+        && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x+ platform.width){
+    player.velocity.y=0} 
+
+
    
     updateCollectibles()
     checkCollisions()
