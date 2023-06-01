@@ -113,6 +113,8 @@ player.update()
 const platforms = [new Platform({
     x:350, y: 500
 }), new Platform({x:700,y:300}), new Platform({x:1000,y:100}), new Platform({x:1400,y:600})]
+
+
 const keys = {
 right: {
     pressed: false
@@ -153,15 +155,11 @@ function animate() {
         && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x+ platform.width){
     player.velocity.y=0} 
     })
+    refreshBackground();
 
 
    
-    updateCollectibles()
-    checkCollisions()
-    if (performance.now() - lastSpawnTime > spawnInterval) {
-        spawnCollectible()
-        lastSpawnTime = performance.now()
-     }
+
 }
 animate()
 
@@ -185,3 +183,20 @@ class Collectible {
       this.position.y += 5
     }
   }
+  const backgroundImage = new Image();
+  backgroundImage.src = './image/fon.png';
+  
+  let backgroundStart = 0;
+  
+  function refreshBackground() {
+    ctx.drawImage(backgroundImage, 0, backgroundStart);
+    ctx.drawImage(backgroundImage, 0, backgroundStart - canvas.height);
+  
+    backgroundStart += 1;
+  
+    if (backgroundStart > canvas.height) {
+      backgroundStart = 0;
+    }
+  }
+  
+ 
