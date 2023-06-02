@@ -1,5 +1,6 @@
-import background from './image/fon.png'
-import background from './image/platform.png'
+// import background from './image/fon.png'
+console.log(platform)
+import platform from './image/platform.png'
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
@@ -110,6 +111,9 @@ class Player {
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 }
+
+
+
 const player = new Player()
 player.update()
 const platforms = [new Platform({
@@ -170,47 +174,12 @@ function animate() {
 }
 animate()
 
-class Collectible {
-    constructor(position, good) {
-      this.position = position
-      this.good = good
-      const image = new Image()
-      image.src = good ? './image/good.png' : './image/bad.png'
-      this.image = image
-      this.width = 50
-      this.height = 50
-    }
-  
-    draw() {
-      c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
-    }
-  
-    update() {
-      this.draw()
-      this.position.y += 5
-    }
-  }
  
 
-class Landscape{
-    constructor({x, y}){
-        this.position = {
-            x, 
-            y
-         }
-        this.image = image
-        this.width = image.width
-        this.height=image.height
   
-       }
-       draw() {
-        c.drawImage(this.image, this.position.x, this.position.y)
-       }
-   }
-  
-   function createImage(imageSrc){
-    const image = new Image(){
-        image.src =
-    }
-   }
+//    function createImage(imageSrc){
+//     const image = new Image(){
+//         image.src =
+//     }
+   
  
