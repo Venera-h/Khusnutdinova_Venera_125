@@ -1,13 +1,17 @@
-// import background from './image/fon.png'
-console.log(platform)
-import platform from './image/platform.png'
+
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
 canvas.width= window.innerWidth
 canvas.height= window.innerHeight
 
-const gravity = 0.2
+const gravity = 0.2 
+
+const bgImage = new Image()
+bgImage.src = './image/back.jpeg'
+bgImage.onload = function () {
+    context.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+  }
 
 class Player {
     constructor() {
@@ -111,20 +115,17 @@ class Player {
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 }
-
-
-
 const player = new Player()
 player.update()
 const platforms = [new Platform({
     x:350, y: 500
 }), new Platform({x:700,y:300}), new Platform({x:1000,y:100}), new Platform({x:1400,y:600})]
-const landscape = [new Landscape({
-    x:0,
-    y:0,
-    image
+// const landscape = [new Landscape({
+//     x:0,
+//     y:0,
+//     image
 
-})]
+// })]
 
 const keys = {
 right: {
@@ -174,8 +175,43 @@ function animate() {
 }
 animate()
 
+// class Collectible {
+//     constructor(position, good) {
+//       this.position = position
+//       this.good = good
+//       const image = new Image()
+//       image.src = good ? './image/good.png' : './image/bad.png'
+//       this.image = image
+//       this.width = 50
+//       this.height = 50
+//     }
+  
+//     draw() {
+//       c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+//     }
+  
+//     update() {
+//       this.draw()
+//       this.position.y += 5
+//     }
+//   }
  
 
+// class Landscape{
+//     constructor({x, y}){
+//         this.position = {
+//             x, 
+//             y
+//          }
+//         this.image = image
+//         this.width = image.width
+//         this.height=image.height
+  
+//        }
+//        draw() {
+//         c.drawImage(this.image, this.position.x, this.position.y)
+//        }
+//    }
   
 //    function createImage(imageSrc){
 //     const image = new Image(){
